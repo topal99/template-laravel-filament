@@ -45,17 +45,16 @@ class GuestBookResource extends Resource
             ->columns([
                 //
                 TextColumn::make('name')
-                    ->sortable()
-                    ->searchable(isIndividual: true, isGlobal: false),
+                    ->sortable(),
                 TextColumn::make('email')
-                    ->sortable()
-                    ->searchable(isIndividual: true, isGlobal: false),
+                    ->sortable(),
                 TextColumn::make('message')->wrap()
             ])
             ->defaultSort('name', 'asc')
             ->filters([
                 //
             ])
+            ->searchable()
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
